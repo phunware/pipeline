@@ -1,5 +1,6 @@
 'use strict';
 const { expect } = require('chai');
+const { spy } = require('sinon');
 const pipeline = require('../src/pipeline');
 
 describe('pipeline', function () {
@@ -39,5 +40,17 @@ describe('pipeline', function () {
       );
       expect(newScore).to.equal(57);
     });
+  });
+
+  it('should call each function in turn', function () {
+    const spy1 = spy(() => 1);
+    const spy2 = spy(() => 2);
+    const spy3 = spy(() => 3);
+
+    const finalValue = pipeline(0, spy1, spy2, spy3);
+    expect(spy1).to.have.been.calledWith(0);
+    expect(spy2).to.have.been.calledWith(1);
+    expect(spy3).to.have.been.calledWith(2);
+    expect(finalValue).to.equal(3);
   });
 });
