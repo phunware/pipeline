@@ -1,0 +1,24 @@
+{
+  "name": "pipeline",
+  "version": "0.0.0",
+  "main": "lib/index",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/phunware/pipeline.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha -r specs/testHelper.js specs/**/*.spec.js",
+    "build": "npm run clear:lib && npm run build:src",
+    "build:src": "BABEL_DISABLE_CACHE=1 babel src -d lib --copy-files",
+    "clear:lib": "rm -rf lib"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-preset-es2015": "^6.13.2",
+    "chai": "^3.5.0",
+    "dirty-chai": "^1.2.2",
+    "mocha": "^3.0.2"
+  },
+  "dependencies": {}
+}
