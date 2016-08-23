@@ -1,6 +1,6 @@
 'use strict';
 const { expect } = require('chai');
-const pipeline = () => {};
+const pipeline = require('../src/pipeline');
 
 describe('pipeline', function () {
   //  inspired by https://github.com/mindeavor/es-pipeline-operator/blob/master/README.md
