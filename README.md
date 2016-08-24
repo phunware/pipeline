@@ -1,15 +1,15 @@
-# pipeline
+# value-pipeline
 
 Pipes a value through a series of functions, sending the return value of the previous function as the single argument to the next. Inspired by the [es-pipeline-operator](https://github.com/mindeavor/es-pipeline-operator) proposal.
 
 ## TL;DR:
 
 ```sh
-$ npm install --save pipeline
+$ npm install --save value-pipeline
 ```
 
 ```js
-var pipeline = require('pipeline');
+var pipeline = require('value-pipeline');
 var result = pipeline("[1, 2, 3]",
   JSON.parse,
   _ => _.map(n => n * 2)
